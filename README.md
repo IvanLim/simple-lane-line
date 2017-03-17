@@ -8,6 +8,16 @@
 
 This project is graded against this [project rubric](https://review.udacity.com/#!/rubrics/322/view).
 
+## The project requires the following libraries/software:
+
+- Python 3.5.2
+- Matplotlib 2.0.0
+- Numpy 1.11.3
+- OpenCV 3.1.0
+- moviepy 0.2.2.11
+- IPython 5.1.0
+- Jupyter Notebook 4.2.1
+
 ## The Image Processing Pipeline
 
 ![Original Image](report/1_original.png "Original Image")
