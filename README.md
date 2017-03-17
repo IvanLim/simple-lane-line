@@ -10,6 +10,8 @@ This project is graded against this [project rubric](https://review.udacity.com/
 
 ## The Image Processing Pipeline
 
+![Original Image](report/1_original.png "Original Image")
+
 ### Colour Filtering
 
 Since we are detecting lane lines, we start by filtering out colours that are unlikely to be lane line related (greens, reds, blues, purples etc). We just want to keep the whites and yellows in the image. Filtering is done with OpenCV&#39;s inRange() method for the following colours:
@@ -19,49 +21,49 @@ Since we are detecting lane lines, we start by filtering out colours that are un
 
 These value ranges were manually sampled from the driving images with an image editing software.
 
- [Original Image] [Filtered Image]
+![Colour Filtering](report/2_colour_filtered.png "Colour Filtering")
 
 ### Greyscaling
 
 Once the irrelevant colours are stripped out, the remaining pixels are converted to grayscale to simplify processing.
 
-[Filtered Image] [Greyscaled image]
+![Greyscaling](report/3_greyscaled.png "Greyscaling")
 
 ### Gaussian Blur
 
 The image is then blurred to reduce noise
 
-[Greyscaled Image][Blurred image]
+![Blurring](report/4_blurred.png "Blurring")
 
 ### Canny Edge Detection
 
 Canny Edge Detection is then applied to identify edges in the image
 
-[Blurred Image] [Canny Image]
+![Edge Detection](report/5_canny.png "Edge Detection")
 
 ### Region Masking
 
 Irrelevant regions of the image are then masked to reduce noise
 
-[Canny Image][Masked Image]
+![Region Masking](report/6_masking.png "Region Masking")
 
 ### Hough Transform
 
 A Hough Transform is a simple transformation where a line y = mx + c is plotted on **m** vs **c** axes (instead of the usual **x** vs **y** axes). Representing lines this way is useful. It means that lines that are of similar gradients and offsets can be grouped together easily to figure out if they form a larger line together. (in other words, small chunks of disconnected pixels that are lined up together can still be detected as a line!)
 
-[Masked Image][Hough Lines Image]
+![Hough Transform](report/7_hough.png "Hough Transform")
 
 ### Line Extrapolation
 
 Now that we know where the main lines are in the image, we can extrapolate the information to draw two complete lines to represent where the lane lines most likely are.
 
-[Hough Lines][Extrapolated lines]
+![Extrapolation](report/8_extrapolated.png "Extrapolation")
 
 ### Blend Lines with Original Image
 
 The results are then blended with the original image
 
-[Extrapolated Lines][Final Image]
+![Final Image](report/9_combined.png "Final Image")
 
 ## Thoughts and Observations
 
